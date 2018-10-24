@@ -9,9 +9,9 @@ namespace PagadorApp.Models
 
         public string MerchantOrderId { get; set; }
 
-        public Customer customer { get; set; }
+        public Customer Customer { get; set; }
 
-        public Payment payment { get; set; }
+        public Payment Payment { get; set; }
     }
 
 }

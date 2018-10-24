@@ -1,5 +1,4 @@
-﻿@page
-@using PagadorApp.Models.Enum
+﻿@using PagadorApp.Models.Enum
 @model PagadorApp.Models.Sale
 
 @{
@@ -18,23 +17,23 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <label asp-for="customer.Name"></label>
-                <input class="form-control" asp-for="customer.Name" maxlength="255">
-                <span style="color:red" asp-validation-for="customer.Name"></span>
+                <label asp-for="Customer.Name"></label>
+                <input class="form-control" asp-for="Customer.Name" maxlength="255">
+                <span style="color:red" asp-validation-for="Customer.Name"></span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3">
             <div class="form-group">
-                <label asp-for="payment.Provider"></label>
-                <select class="form-control" asp-for="payment.Provider" asp-items="Html.GetEnumSelectList<ProviderEnum>()"></select>
+                <label asp-for="Payment.Provider"></label>
+                <select class="form-control" asp-for="Payment.Provider" asp-items="Html.GetEnumSelectList<ProviderEnum>()"></select>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="form-group">
-                <label asp-for="payment.Type"></label>
-                <select class="form-control" asp-for="payment.Type">
+                <label asp-for="Payment.Type"></label>
+                <select class="form-control" asp-for="Payment.Type">
                     <option value="CreditCard">CreditCard</option>
                 </select>
             </div>
@@ -43,57 +42,57 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">
-                <label asp-for="payment.Amount"></label>
-                <input class="form-control" asp-for="payment.AmountD" min="0" data-mask="00000000000000000,00" data-mask-reverse="true">
-                <span style="color:red" asp-validation-for="payment.Amount"></span>
+                <label asp-for="Payment.Amount"></label>
+                <input class="form-control" asp-for="Payment.AmountD" min="0" data-mask="00000000000000000,00" data-mask-reverse="true">
+                <span style="color:red" asp-validation-for="Payment.Amount"></span>
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
-                <label asp-for="payment.Installments"></label>
-                <input class="form-control" asp-for="payment.Installments" data-mask="00">
-                <span style="color:red" asp-validation-for="payment.Installments"></span>
+                <label asp-for="Payment.Installments"></label>
+                <input class="form-control" asp-for="Payment.Installments" data-mask="00">
+                <span style="color:red" asp-validation-for="Payment.Installments"></span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">
-                <label asp-for="payment.creditCard.Holder"></label>
-                <input class="form-control" asp-for="payment.creditCard.Holder" maxlength="25">
-                <span style="color:red" asp-validation-for="payment.creditCard.Holder"></span>
+                <label asp-for="Payment.creditCard.Holder"></label>
+                <input class="form-control" asp-for="Payment.creditCard.Holder" maxlength="25">
+                <span style="color:red" asp-validation-for="Payment.creditCard.Holder"></span>
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
-                <label asp-for="payment.creditCard.Brand"></label>
-                <select class="form-control" asp-for="payment.creditCard.Brand" asp-items="Html.GetEnumSelectList<BrandEnum>()"></select>
-                <span style="color:red" asp-validation-for="payment.creditCard.Brand"></span>
+                <label asp-for="Payment.creditCard.Brand"></label>
+                <select class="form-control" asp-for="Payment.creditCard.Brand" asp-items="Html.GetEnumSelectList<BrandEnum>()"></select>
+                <span style="color:red" asp-validation-for="Payment.creditCard.Brand"></span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">
-                <label asp-for="payment.creditCard.CardNumber"></label>
-                <input class="form-control" asp-for="payment.creditCard.CardNumber" data-mask="0000 0000 0000 0000">
-                <span style="color:red" asp-validation-for="payment.creditCard.CardNumber"></span>
+                <label asp-for="Payment.creditCard.CardNumber"></label>
+                <input class="form-control" asp-for="Payment.creditCard.CardNumber" data-mask="0000 0000 0000 0000">
+                <span style="color:red" asp-validation-for="Payment.creditCard.CardNumber"></span>
             </div>
         </div>
         <div class="col-lg-2">
             <div class="form-group">
-                <label asp-for="payment.creditCard.ExpirationDate"></label>
-                <input class="form-control" asp-for="payment.creditCard.ExpirationDate" data-mask="00/0000">
-                <span style="color:red" asp-validation-for="payment.creditCard.ExpirationDate"></span>
+                <label asp-for="Payment.creditCard.ExpirationDate"></label>
+                <input class="form-control" asp-for="Payment.creditCard.ExpirationDate" data-mask="00/0000">
+                <span style="color:red" asp-validation-for="Payment.creditCard.ExpirationDate"></span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3">
             <div class="form-group">
-                <label asp-for="payment.creditCard.SecurityCode"></label>
-                <input class="form-control" asp-for="payment.creditCard.SecurityCode" maxlength="4">
-                <span style="color:red" asp-validation-for="payment.creditCard.SecurityCode"></span>
+                <label asp-for="Payment.creditCard.SecurityCode"></label>
+                <input class="form-control" asp-for="Payment.creditCard.SecurityCode" maxlength="4">
+                <span style="color:red" asp-validation-for="Payment.creditCard.SecurityCode"></span>
             </div>
         </div>
     </div>

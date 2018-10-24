@@ -33,6 +33,7 @@ namespace PagadorApp.Controllers
 
         {
             List<Sale> ListSale = new List<Sale>();
+
             var Payments = await _pagamento.Listar();
 
             if (Payments.Payments != null)
@@ -71,7 +72,7 @@ namespace PagadorApp.Controllers
                 if (_sale == null)
 
                     return View(sale);
-                return RedirectToAction("Visualizar", "Pagamento", new { id = _sale.payment.PaymentId.ToString() });
+                return RedirectToAction("Visualizar", "Pagamento", new { id = _sale.Payment.PaymentId.ToString() });
 
             }
 
@@ -96,7 +97,7 @@ namespace PagadorApp.Controllers
         public async Task<IActionResult> Capturar(Sale sale, String id)
 
         {
-            string PaymentId = sale.payment != null ? sale.payment.PaymentId.ToString() : id;
+            string PaymentId = sale.Payment != null ? sale.Payment.PaymentId.ToString() : id;
             await _pagamento.Capturar(PaymentId);
             return RedirectToAction("Visualizar", "Pagamento", new { id = PaymentId });
         }
@@ -107,7 +108,7 @@ namespace PagadorApp.Controllers
         public async Task<IActionResult> Cancelar(Sale sale, String id)
 
         {
-            string PaymentId = sale.payment != null ? sale.payment.PaymentId.ToString() : id;
+            string PaymentId = sale.Payment != null ? sale.Payment.PaymentId.ToString() : id;
             await _pagamento.Cancelar(PaymentId);
             return RedirectToAction("Visualizar", "Pagamento", new { id = PaymentId });
         }

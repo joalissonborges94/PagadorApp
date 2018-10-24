@@ -44,9 +44,9 @@ namespace PagadorApp.Services
 
             List<Sale> ListSale = new List<Sale>();
 
-            Client.BaseAddress = new Uri(_configuration["http://pagador.com.br/"]);
+            Client.BaseAddress = new Uri(_configuration["https://apiquerysandbox.braspag.com.br/"]);
 
-            var response = await Client.GetAsync("v2/sales?merchantOrderId=" + _configuration["5841000257"]);
+            var response = await Client.GetAsync("v2/sales?merchantOrderId=" + _configuration["merchantOrderId"]);
 
             if (response.IsSuccessStatusCode)
 
