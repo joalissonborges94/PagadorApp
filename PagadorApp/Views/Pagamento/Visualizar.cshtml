@@ -1,0 +1,137 @@
+﻿@using PagadorApp.Models.Enum
+@model PagadorApp.Models.Sale
+
+@{
+    ViewData["Title"] = "Visualizar";
+}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label asp-for="Payment.PaymentId"></label>
+                <input class="form-control" asp-for="Payment.PaymentId" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label asp-for="Customer.Name"> Customer.Name</label>
+                <input class="form-control" asp-for="Customer.Name" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label asp-for="Payment.Amount"></label>
+                <input class="form-control" asp-for="Payment.TransformAmount" disabled>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label asp-for="Payment.Installments"></label>
+                <input class="form-control" asp-for="Payment.Installments" disabled>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label asp-for="Payment.creditCard.Holder"></label>
+                <input class="form-control" asp-for="Payment.creditCard.Holder" disabled>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label asp-for="Payment.creditCard.Brand"></label>
+                <select class="form-control" asp-for="Payment.creditCard.Brand" asp-items="Html.GetEnumSelectList<BrandEnum>()" disabled></select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label asp-for="Payment.creditCard.CardNumber"></label>
+                <input class="form-control" asp-for="Payment.creditCard.CardNumber" disabled>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label asp-for="Payment.creditCard.ExpirationDate"></label>
+                <input class="form-control" asp-for="Payment.creditCard.ExpirationDate" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label asp-for="Payment.AuthorizationCode"></label>
+                <input class="form-control" asp-for="Payment.AuthorizationCode" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label asp-for="Payment.ReceivedDate"></label>
+                <input class="form-control" asp-for="Payment.ReceivedDate" disabled>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label asp-for="Payment.ReasonCode"></label>
+                <input class="form-control" asp-for="Payment.ReasonCode" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label asp-for="Payment.ReasonMessage"></label>
+                <input class="form-control" asp-for="Payment.ReasonMessage" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label asp-for="Payment.Status"></label>
+                <input class="form-control" asp-for="Payment.MsgStatus" disabled>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label asp-for="Payment.ProviderReturnCode"></label>
+                <input class="form-control" asp-for="Payment.ProviderReturnCode" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label asp-for="Payment.ProviderReturnMessage"></label>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST">
+        <input asp-for="Payment.PaymentId" type="hidden" />
+
+        <button asp-controller="Pagamento" asp-action="Capturar" type="submit" class="btn btn-primary">Capturar</button>
+
+        <button type="submit" class="btn btn-primary" asp-controller="Pagamento" asp-action="Cancelar">Cancelar</button>
+
+        <a class="btn btn-primary" asp-controller="Pagamento" asp-action="Index">Voltar</a>
+
+    </form>
+
+   

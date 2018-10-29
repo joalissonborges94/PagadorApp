@@ -8,8 +8,6 @@ using PagadorApp.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-
-
 namespace PagadorApp.Services
 
 {
@@ -44,7 +42,7 @@ namespace PagadorApp.Services
 
             List<Sale> ListSale = new List<Sale>();
 
-            Client.BaseAddress = new Uri(_configuration["https://apiquerysandbox.braspag.com.br/"]);
+            Client.BaseAddress = new Uri("https://apiquerysandbox.braspag.com.br/");
 
             var response = await Client.GetAsync("v2/sales?merchantOrderId=" + _configuration["merchantOrderId"]);
 
@@ -70,7 +68,7 @@ namespace PagadorApp.Services
 
             if (Client.BaseAddress == null)
 
-                Client.BaseAddress = new Uri(_configuration["https://apiquerysandbox.braspag.com.br/"]);
+                Client.BaseAddress = new Uri("https://apiquerysandbox.braspag.com.br/");
 
 
 
@@ -96,7 +94,7 @@ namespace PagadorApp.Services
 
         {
 
-            Client.BaseAddress = new Uri(_configuration["https://apisandbox.braspag.com.br/"]);
+            Client.BaseAddress = new Uri("https://apisandbox.braspag.com.br/");
 
 
 
@@ -122,7 +120,7 @@ namespace PagadorApp.Services
 
         {
 
-            Client.BaseAddress = new Uri(_configuration["https://apisandbox.braspag.com.br/"]);
+            Client.BaseAddress = new Uri("https://apisandbox.braspag.com.br/");
 
             var response = await Client.PutAsync("v2/sales/" + PaymentId.ToString() + "/capture", null);
 
@@ -144,8 +142,9 @@ namespace PagadorApp.Services
         public async Task Cancelar(string PaymentId)
 
         {
+            Client.BaseAddress = new Uri("https://apisandbox.braspag.com.br/");
 
-            Client.BaseAddress = new Uri(_configuration["https://apisandbox.braspag.com.br/"]);
+
 
             var response = await Client.PutAsync("v2/sales/" + PaymentId.ToString() + "/void", null);
 

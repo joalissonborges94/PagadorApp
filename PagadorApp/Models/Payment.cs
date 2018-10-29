@@ -25,10 +25,12 @@ namespace PagadorApp.Models
         public string Type { get; set; }
 
         [Required(ErrorMessage = "O Valor da compra é obrigatório")]
-        [Range(1, 9223372036854775807, ErrorMessage = "O Valor da compra deverá ser entre 1 e 92233720368547758,07.")]
+        [Range(1, 9223372036854775807, ErrorMessage = "Valor da compra inválido!")]
         [Display(Name = "Valor da compra")]
-        public long? Amount { get; set; }
+        public long Amount { get; set; }
 
+        [Required(ErrorMessage = "O Valor da compra é obrigatório")]
+        [Range(1, 922337203685477.58, ErrorMessage = "O Valor da compra deverá ser entre 1 e 92233720368547758,07.")]
         private decimal amountD;
         public decimal AmountD
 
@@ -45,10 +47,10 @@ namespace PagadorApp.Models
         }
 
         [Required(ErrorMessage = "O Numero de parcelas é obrigatório")]
-        [Range(1, 99, ErrorMessage = "O Numero de parcelas deverá ser entre 1 e 99.")]
+        [Range(1, 99, ErrorMessage = "Número de parcelas inválido! .")]
         [Display(Name = "Nº de parcelas")]
 
-        public int? Installments { get; set; }
+        public int Installments { get; set; }
         public CreditCard creditCard { get; set; }
 
         [Display(Name = "Número do Comprovante de Venda")]

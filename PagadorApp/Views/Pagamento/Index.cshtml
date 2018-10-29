@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PagadorApp.Models.Sale>
+
+@{
+    ViewData["Title"] = "Pagamento";    
+}
+
+<form method="POST">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Data do Recebimento</th>
+                <th scope="col">Código da Transação</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Quantidade de Parcelas</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Payment.ReceivedDate
+                    </td>
+                    <td>
+                        @item.Payment.PaymentId
+                    </td>
+                    <td>
+                        @item.Payment.Type
+                    </td>
+                    <td>
+                        @( ((decimal)item.Payment.Amount / 100).ToString("c") )
+                    </td>
+                    <td>
+                        @item.Payment.Installments
+                    </td>
+                    <td>
+                        @item.Payment.MsgStatus
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" asp-controller="Pagamento" asp-action="Visualizar" asp-route-id=@item.Payment.PaymentId>Visualizar</button>
+                    </td>
+                    <td>
+                        @if (item.Payment.Status == 1)
+                        {
+                            <button type="submit" class="btn btn-primary" asp-controller="Pagamento" asp-action="Capturar" asp-route-id=@item.Payment.PaymentId>Capturar</button>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Payment.Status == 1 || item.Payment.Status == 2)
+                        {
+                            <button type="submit" class="btn btn-primary" asp-controller="Pagamento" asp-action="Cancelar" asp-route-id=@item.Payment.PaymentId>Cancelar/Estornar</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+<form >
+    <button type="submit" class="btn btn-primary" asp-controller="Pagamento" asp-action="Pagar">Pagar</button>
+</form>
